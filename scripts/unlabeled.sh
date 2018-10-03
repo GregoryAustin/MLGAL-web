@@ -1,0 +1,11 @@
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012000929_dp_st_tl.fit' -O e20150116_0012000929_dp_st_tl.fit # b328v-044 1000000018054
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012000993_dp_st_tl.fit' -O e20150116_0012000993_dp_st_tl.fit # b329v-048 1000000018341
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001063_dp_st_tl.fit' -O e20150116_0012001063_dp_st_tl.fit # b330v-048 1000000018573
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001131_dp_st_tl.fit' -O e20150116_0012001131_dp_st_tl.fit # b331v-039 1000000018011
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001201_dp_st_tl.fit' -O e20150116_0012001201_dp_st_tl.fit # b332v-039 1000000018581
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001276_dp_st_tl.fit' -O e20150116_0012001276_dp_st_tl.fit # b333v-019 1000000018577
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001347_dp_st_tl.fit' -O e20150116_0012001347_dp_st_tl.fit # b334v-012 1000000018394
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001414_dp_st_tl.fit' -O e20150116_0012001414_dp_st_tl.fit # b335v-026 1000000018557
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001483_dp_st_tl.fit' -O e20150116_0012001483_dp_st_tl.fit # b336v-012 1000000018251
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001550_dp_st_tl.fit' -O e20150116_0012001550_dp_st_tl.fit # b337v-032 1000000018435
+wget 'http://wsa.roe.ac.uk/cgi-bin/fits_download.cgi?file=/disk35/vsa/products/tiles/20150116_v8/e20150116_0012001604_dp_st_tl.fit' -O e20150116_0012001604_dp_st_tl.fit # b338v-5 1000000017999

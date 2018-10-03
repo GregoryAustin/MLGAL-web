@@ -11,13 +11,10 @@
     <title>MLGAL</title>
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="background-color: #323232 !important;">
+    <nav class="navbar fixed-top navbar-expand navbar-dark bg-dark" style="background-color: #323232 !important;">
       <!--<a class="navbar-brand" href="#">MLGAL</a>-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse container" id="navbarNavAltMarkup">
+      <div class="container" id="navbarNavAltMarkup">
         <div class="navbar-nav row">
           <div class="col"><a class="nav-item nav-link " href="./home.html">About </a></div>
           <div class="nav-item dropdown active">
@@ -38,7 +35,7 @@
       <div class="row">
         <div class="col"><b>Semi-supervised approach </b></div>
 
-        <div class="col" style="text-align:right;"><a target="_blank" href="./pdfs/semi-super.pdf">Download academic paper</a> | <a target="_blank" href="https://github.com/GregoryAustin/mlgal-unsupervised">Github repo</a></div>
+        <div class="col" style="text-align:right;"><a target="_blank" href="./pdfs/semi-super.pdf">Download academic paper</a> | <a download="mlgal-semi.zip" href="./scripts/mlgal_astgre002.zip">Download project code</a></div>
 
       </div>
       <hr/>
@@ -62,19 +59,129 @@
           the high efficacy classification we hypothesize that the Encoder
           from the autoencoder learnt some useful representations from the
           comparatively large unlabeled dataset.</p>
-      <h2>Project Objectives</h2>
+      <h2>Objectives</h2>
         <div class="entry-content">
-          <p>&#9642; Objectives for both approaches included; accurately identify galaxies in the ZoA (Zone of Avoidance), dealing with "noise" from other light sources in the ZoA and potentially offering an improved work flow to astronomers in helping identifying galaxies in the ZoA.</p>
-          <p>&#9642; The objectives for the <a href="./super.html"> supervised approach </a> (David Jones) included; evaluating if a topologically evolved CNN can identify galaxies in the ZoA, and evolving a CNN configuration that is specific to the required task, making it worth the EA processing time over a human adjusted configuration. </p>
-          <p>&#9642; The objective of the <a href="./semi.html"> semi-supervised approach <a> was to evaluate the effectiveness of using an autoencoder with ANNs (semi-supervised) compared to only using ANNs (supervised). </p>
+          <p>The aim of this study is to evaluate the effectiveness of using Semi-
+          supervised Deep-learning methods for Classification of Galaxies
+          in the Galactic Plane. The effectiveness is defined as classification
+          task performance and was measured as the percentage correctly
+          classified in the test sets. The hypothesis of the study is:</p>
+
+          <div class="text-monospace" style="padding:20px;">
+          Hypothesis 1. A semi-supervised deep-learning method for classification of galaxies in the Galactic Plane will yield high classification
+          efficacy with respect to a range of test data from the Galactic Plane.
+          Where high classification efficacy is classification accuracy >90%.
+          </div>
+
+          <p> In order to adequately measure the effectiveness of the semi-supervised methods, they were compared against supervised methods. This study used an autoencoder with a deep architecture for the unsupervised learning component of the semi-supervised learning methods. Previous work that used autoencoders for semisupervised learning methods show these methods can have a high classification efficacy (> 90%) across a range of problem domains. It was hypothesized that the same will hold for classification with respect to a test set from the Galactic Plane.</p>
         </div>
       
-      <h2>Results</h2>
+      <h2>Datasets</h2>
+          <div class="entry-content">
+            <p>&#9642; Unlabeled Galaxy Dataset. The dataset is from the VVV survey. The VVV survey consists of tiles where each tile is a
+section of the sky, refer to figure below. The VVV survey uses NIR filters
+J, H and Ks, with Ks filter observations being the most common.
+The tile names start with “b” for bulge and “d” for disk tiles, but
+only bulge tiles were used in the Ks filter as FITS images. The bulge
+tiles chosen were tile 328 to tile 338, these tiles were chosen so
+that there is more data from the Galactic Plane. There are several
+observations per tile, however in the chosen dataset one observation was chosen per tile with the criteria of best seen observation.
+The criteria for best seen observation was decided by an expert
+at VISTA Science Archive (VSA). A bash script for the unlabeled dataset can be downloaded <a href="./scripts/unlabeled.sh" download="unlabeled.sh">here</a>.  </p>
+<div><img src="./img/galaxytiles.png" class = "rounded mx-auto d-block" alt="404: pic not found" style="width:100vh;"/>
+
+<p style="padding-right:60px;padding-left:60px;"><em>VVV Survey area and tile numbering from the VVV data release. The tile names start with “b” for bulge and “d” for disk tiles, followed by the numbering as shown in the figure.</em> </p></div>
+            <p>&#9642; Labeled Galaxy Dataset. The dataset consists of images of
+galaxies labeled from 1 to 9 indicating whether the image is a galaxy
+(1 being most likely a galaxy, and 9 being least likely a galaxy). In
+the dataset images range form 200x200 to 3500x3500 pixels and in
+each image the point source is centered. The dataset is in the Ks
+filter, this is used because the autoencoder is trained on data in the
+Ks filter. <a href="mailto:astgre002@myuct.ac.za">Contact</a> the author to acquire the labeled dataset. </p>
+<p>&#9642; CIFAR 10. This is a widely used dataset and is used in this
+study for benchmark task performance comparisons. The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes,
+with 6000 images per class. There are 50000 training images and
+10000 test images. The 10 classes are: airplanes, automobiles, birds,
+cats, deer, dogs, frogs, horses, ships and trucks. The classes are
+completely mutually exclusive. </p>
+            
+          </div>
+          <br/>
+
+        <h2>Methods</h2>
+        <h5>Background</h5>
+
+        <p>The autoencoder was trained on the near infrared astronomical survey: VVV (VISTA Variables in the Via Lactea) in the Ks filter.
+        The Ks filter captures light with a specific wave length, specifically
+        from 1.990 μm to 2.310 μm. The Ks filter was chosen because the
+        abundance of observations in this filter and extinction is lowest in
+        comparison to other NIR filters. Extinction is the absorption andscattering of electromagnetic radiation by dust and gas between a
+        point source, for example a galaxy, and the observer. </p>
+        <p>For the supervised learning component of semi-supervised learning methods the study used an ANN and a CNN. When an ANN or a CNN is combined with the Encoder from an autoencoder the result is a semi-supervised learning method. The ANN and CNN were trained using the pre-trained Encoder from the autoencoder as
+        input and the Encoder used the images of galaxies in the Ks filter as
+        input. The ANN and CNN were also trained on their own using the
+        labeled dataset for a comparison of supervised and semi-supervised
+        learning methods.</p>
+        <h5>Autoencoder</h5>
+        <p>A visual representation of the encoding and decoding layers is given by
+the figures below. The input to the network can be 1 channel 96x96
+pixel images (galaxy data) or 3 channel (RGB) 32x32 pixel images
+(CIFAR-10). Pooling is used because it helps the autoencoder learn
+more robust features, pooling is invariant to local deformations. The convolutional layers are inspired by LeCun et al.’s LeNet which used convolutional layers.</p>
+      <div class="row">
+          <div class="col"> 
+            <img src="./img/encode.png" class = "rounded mx-auto d-block" alt="404: pic not found" />
+            <p style="padding-right:60px;padding-left:60px;"><em>The encoder (encoding network) for the autoencoder with actual input image.</em> </p>
+
+          </div>
+
+          <div class="col">
+            <img src="./img/decode.png" class = "rounded mx-auto d-block" alt="404: pic not found" />
+            <p style="padding-right:60px;padding-left:60px;"><em>The decoder (decoding network) for the autoencoder with actual output image.</em> </p>
+          </div>
+      </div>
+
+      <h5>Supervised methods</h5>
+      <p>There were two supervised ANNs used in this study. First, a very
+simple ANN is used to test the learned representation of the Autoencoder. Second, an image detection CNN is used to test the learned
+representation and as a comparative method.</p>
+      <h6><b>Simple Artificial Neural Network</b></h6>
+      <p>The Simple ANN was set
+up to take the encoders output as input. Alternatively the ANN can
+be set up to take raw input. There was only one fully connected
+layer in the Simple ANN. A fully connected layer is where each
+neuron receives input from every node of the previous layer. Before
+the encoder output was given to the fully connected layer, it went
+through batch normalisation to improve the stability of the network. Batch normalisation normalises the output of a previous
+activation layer by subtracting the batch mean and dividing by the
+batch standard deviation. Following batch normalisation the output
+went through the fully connected layer which maps to two outputs
+(galaxy or non-galaxy). Alternatively the fully connected layer can
+map to ten outputs for CIFAR-10. Finally the outputs are given to a
+softmax function. The softmax function is an activation function
+which is used for multiclass classification. </p>
+    <h6><b>Convolutional Neural Network</b></h6>
+    <p> 
+      The Convolutional Neural
+Network has a total of 12 layers, 5 convolutional layers, 5 max
+pooling layers, and 2 fully connected layers. Refer to the figure below for a
+visual overview of the net. The CNN uses max pooling where the
+objective is to down-sample input, reducing its dimensionality and
+allowing for assumptions to be made about the down-sampled input. Max
+pooling also helps decrease over-fitting by providing an abstracted
+form of the representation. After the convolutional and max
+pooling layers, there are two fully connected layers. The first fully
+connected layer uses ReLU as an activation function. The
+final fully connected layer uses softmax. Softmax is an activation
+function which is used for multiclass classification.
+    </p>
+     <img src="./img/CNN.png" class = "rounded mx-auto d-block" alt="404: pic not found" />
+
+<p style="padding-right:60px;padding-left:60px;text-align:center"><em>The structure of the CNN. This configuration is for galaxy images. </em> </p>
+      <h2>Results and conclusions </h2>
         <div class="row" style="padding-bottom:20px;">
           <div class="col">
             <div class="entry-content">
-
-              <h3>Supervised approach </h3>
               <p>&#9642; The best results achieved 91.75% accuracy.</p>
               <p>&#9642; The best CNN configuration could not be improved upon by a human configuration.  </p>
               <p>&#9642; The approach was shown to be a possible tool for astronomers and could evolve a CNN that could identify potential galaxies in unseen data. </p>
@@ -82,10 +189,7 @@
             </div>
           </div>
         </div>
-
-
-       
-          
+ <!--abstract, objectives, datasets,  --> 
 
     </div>
 
@@ -112,7 +216,7 @@
             </dl>
             <dl class="contact-list">
               <dt>email:</dt>
-              <dd>Greg <a href="mailto:#">astgre002@myuct.ac.za</a></dd>
+              <dd>Greg <a href="mailto:astgre002@myuct.ac.za">astgre002@myuct.ac.za</a></dd>
               <dd>David <a href="mailto:#">XXXXXX@myuct.ac.za</a></dd>
             </dl>
             <dl class="contact-list">
