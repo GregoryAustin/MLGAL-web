@@ -37,21 +37,22 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4" style="text-align:center;">Deep Learning Methods for Galaxy Detection in the Zone of Avoidance</h1>
-        <p style="text-align:center;font-size:1.2em;font-weight:bold;">Research into identification of galaxies in the Zone of Avoidance. <br>Authored by David Jones and Gregory Austin. <br>Supervised by Geoff Nitschke.</p>
+        <p style="text-align:center;font-size:1.2em;font-weight:bold;">Research into the identification of galaxies in the Zone of Avoidance. <br>Authors: David Jones and Gregory Austin. <br>Supervised by Geoff Nitschke.</p>
       </div>
     </div>
 
     <div class="container">
       <h1>Background</h1>
-        <p>Not many galaxies can be found in the Galactic Plane (also called Zone of Avoidance) due to high obscuration and high star density. There has been successes in detecting galaxies in the Galactic Plane, however, the key problem remains that high resolution data is difficult to search by eye given that it is overly time consuming and laborious. Thus an automated search and classification process is necessary. Two approaches were developed, a <a href="./semi.html">Semi-supervised deep learning approach</a> (Gregory Austin) and a <a href="./super.html">Supervised deep learning approach</a> (David Jones). Both approaches were used to classify galaxies. These galaxies are already classified galaxies to test the effectiveness of the methods. The results indicated that both learning methods had a high classification efficacy on their respective test sets (>90%). For more details check the research web pages. </p>
+        <p>The Zone of Avoidance (ZoA) prohibits astronomers from easily cataloguing galaxies due to its high star density, thus an automated identificaion process is necessary. Two deep learning approaches, <a href="./semi.html">semi-supervised</a> (Gregory Austin) and <a href="./super.html">supervised</a> (David Jones) were used. The semi-supervised approach used an autoencoder with Artificial Neural Networks (ANNs) while for the supervised approach, a program named <a href="./code/Galyxi Vysion.rar">Galyxi Vysion</a> was developed which uses an Evolutionary Algorithm (EA) to evolve the topologies of Convolutional Neural Networks (CNNs). The results indicated that both learning methods were effective using their respective test sets (>90%). For more details check the research web pages. </p>
+
       <h1>Project Objectives</h1>
         <div class="entry-content">
-          <p>&#9642; Objectives for both approaches included; accurately identify galaxies in the ZoA (Zone of Avoidance), dealing with "noise" from other light sources in the ZoA and potentially offering an improved work flow to astronomers in helping identifying galaxies in the ZoA.</p>
-          <p>&#9642; The objectives for the <a href="./super.html"> supervised approach </a> (David Jones) included; evaluating if a topologically evolved CNN can identify galaxies in the ZoA, and evolving a CNN configuration that is specific to the required task, making it worth the EA processing time over a human adjusted configuration. </p>
-          <p>&#9642; The objective of the <a href="./semi.html"> semi-supervised approach <a> was to evaluate the effectiveness of using an autoencoder with ANNs (semi-supervised) compared to only using ANNs (supervised). </p>
+          <p>&#9642; Objectives for both approaches included; accurately identify galaxies in the ZoA, dealing with "noise" from other light sources in the ZoA and potentially offering an improved work flow to astronomers in helping identifying galaxies in the ZoA.</p>
+          <p>&#9642; The main objective of the <a href="./super.html"> supervised approach </a> (David Jones) was to evaluate if a topologically evolved CNN can produce a specific CNN configuration that is able to identify galaxies in the ZoA, given its input dimensions, and if the results of using an EA are worth the processing time with respect to a human adjusted configuration. </p>
+          <p>&#9642; The main objective of the <a href="./semi.html"> semi-supervised approach <a> was to evaluate the effectiveness of using an autoencoder with ANNs (semi-supervised) to identify galaxies in the ZoA compared to only using ANNs (supervised). </p>
         </div>
       
-      <h1>Results</h1>
+      <h1>Results and Conclusions</h1>
         <div class="row" style="padding-bottom:20px;">
           <div class="col">
             <div class="entry-content">
@@ -85,7 +86,7 @@
           <div class="col-md-4 col-xl-5">
             <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
               <h5>Acknowledgements</h5>
-              <p>The authors would like to thank Dr Anja Schroeder from SAAO for her help with the labeled galaxy dataset; Nicholas Cross from VSA for supplying the unlabeled dataset; Gerard van Wyk for his advice on machine learning architecture. </p>
+              <p>The authors would like to thank Dr Anja Schroeder from SAAO for her expertise in astronomy and help in gathering the labeled dataset, Nicholas Cross from VSA for supplying the unlabeled dataset, Gerard van Wyk for his advice on machine learning architecture, and Dr Geoff Nitschke as the project supervisor. </p>
               <!-- Rights-->
               <!--<p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>All Rights Reserved.</span></p>-->
             </div>
@@ -98,12 +99,12 @@
             </dl>
             <dl class="contact-list">
               <dt>email:</dt>
-              <dd>Greg <a href="mailto:#">astgre002@myuct.ac.za</a></dd>
-              <dd>David <a href="mailto:#">XXXXXX@myuct.ac.za</a></dd>
+              <dd>Greg: <a href="mailto:#">astgre002@myuct.ac.za</a></dd>
+              <dd>David: <a href="mailto:#">davegj101@gmail.com</a></dd>
             </dl>
             <dl class="contact-list">
               <dt>phones:</dt>
-              <dd>Greg <a href="tel:#">+27 72 594 4451</a> <br>David <a href="tel:#">+27 XX XXX XXXX</a>
+              <dd>Greg: <a href="tel:#">+27 72 594 4451</a> <br>David: <a href="tel:#">+27 83 502 2959</a>
               </dd>
             </dl>
           </div>
@@ -111,10 +112,10 @@
             <h5>Links</h5>
             <ul class="nav-list">
               <li><a href="./home.html">About</a></li>
-              <li><a target="_blank" href="#">Supervised approach thesis</a></li>
-              <li><a target="_blank" href="#">Supervised approach code</a></li>
-              <li><a target="_blank" href="./pdfs/semi-super.pdf">Semi-supervised approach thesis</a></li>
-              
+              <li><a target="_blank" href="./code/Galyxi Vysion.rar">Download Galyxi Vysion</a></li>
+              <li><a target="_blank"  href="./pdfs/JNSDAV026.pdf">Supervised approach paper</a></li>
+              <li><a target="_blank"  href="./pdfs/semi-super.pdf">Semi-supervised approach paper</a></li>
+
               <li><a target="_blank"  href="https://github.com/GregoryAustin/mlgal-unsupervised">Semi-supervised approach code</a></li>
             </ul>
           </div>

@@ -25,8 +25,8 @@
               Research <span class="sr-only">(current)</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item active" href="./super.html">Supervised Approach</a>
-              <a class="dropdown-item" href="./semi.html">Semi-supervised Approach</a>
+              <a class="dropdown-item" href="./super.html">Supervised Approach</a>
+              <a class="dropdown-item active" href="./semi.html">Semi-supervised Approach</a>
             </div>
           </div>
           
@@ -34,13 +34,89 @@
       </div>
     </nav>
 
+    <div class="container" style="padding-top:60px">
+      <div class="row">
+        <div class="col"><b>Supervised approach </b></div>
+
+        <div class="col" style="text-align:right;"><a target="_blank" href="./pdfs/JNSDAV026.pdf">Download academic paper</a> | <a target="_blank" href="./code/Galyxi Vysion.rar">Download Galyxi Vysion</a></div>
+
+      </div>
+      <hr/>
+      
+      <h1>Evolving Convolutional Neural Networks to Identify Galaxies in the Zone of Avoidance</h1>
+      <h5 style="text-align:right;">David Jones</h5>
+      <hr/>
+      
+      <h2>Abstract</h2>
+        <p>The Zone of Avoidance makes it difficult for astronomers to catalogue galaxies at low latitudes to our galactic plane due to high star densities and extinction. However, having a complete sky map of galaxies is important in a number of fields of research in astronomy. There are many unclassified sources of light in the Zone of Avoidance and it is therefore important that there exists an accurate automated system to identify and classify galaxies in this region. This study aims to evaluate the efficiency and accuracy of using an evolutionary algorithm to evolve the topology and configuration of convolutional neural networks to automatically identify galaxies in the Zone of Avoidance. A supervised learning method is used with data containing near-infrared images. The input image resolution and number of near-infrared passbands needed by the evolutionary algorithm is also analyzed while the accuracy of the best evolved Convolutional Neural Network (CNN) is compared to other attempts at creating an automated program for the same purpose.</p>
+
+      <h2>Project Objectives</h2>
+        <div class="entry-content">
+          <p>The program Galyxi Vysion, which uses an EA to modify CNN topologies, was developed to identify galaxies in the ZoA. The objectives for this study are to determine if Galyxi Vysion can:</p>
+          <p>&#9642; Accurately identify galaxies in the ZoA. </p>
+          <p>&#9642; Deal with “noise” from other light sources in the ZoA. </p>
+          <p>&#9642; Produce a CNN configuration that is highly specific to the task of identifying galaxies at given input dimensions, making it worth the processing time over a human adjusted configuration. </p>
+          <p>&#9642; Potentially offer an improved work-flow to astronomers in helping identifying galaxies in the ZoA. </p>
+        </div>
+      
+      <h2>Datasets</h2>
+        <div class="row" style="padding-bottom:20px;">
+          <div class="col">
+            <div class="entry-content">
+              <p>Before testing was done using data from the ZoA, small scale tests were done using the popular CIFAR10 dataset to see if everything was running as it should and that the CNNs both learned, tested, and evolved correctly. </p>
+             </p>The VISTA and UKIDSS surveys were used for all training and testing data. Objects were labelled as galaxies or non-galaxies. The data was presented in multiple sets of three FITS (Flexible Image Transport System) files, each representing a different passband; J, H, and K.</p>
+           </p>The data amounted to 34GB. A compressed ZIP of all data used can be downloaded from this external <a href="https://www.dropbox.com/sh/xiulvjxl1zsqa57/AACvlJjjJu93ODloahjVi39Wa?dl=0">link</a>.
+            </div>
+          </div>
+        </div>
+
+        <h2>Methods</h2>
+        <div class="row" style="padding-bottom:20px;">
+          <div class="col">
+            <div class="entry-content">
+              <p>&#9642; More input images were created using transformations.</p>
+              <p>&#9642; A bounding-box algorithm was used to create subimages focused on all labelled objects.</p>
+              <p>&#9642; An evolutionary algorithm was used to modify the parameters of a population of CNNs.</p>
+              <p>&#9642; The CNNs were trained and tested on the input subimages. A CNN's fitness is its percentage accuracy when tested.</p>
+              <p>&#9642; Different sizes of input subimages and combinations of passbands were tested before evaluating the output data produced.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Results and Conclusions</h2>
+        <div class="row" style="padding-bottom:20px;">
+          <div class="col">
+            <div class="entry-content">
+              <p>&#9642; The best results achieved 91.75% accuracy.</p>
+              <p>&#9642; These results were successful in comparison to other attempts to automatically identify galaxies.</p>
+              <p>&#9642; Using smaller input image sizes had little effect on the results down to as low as 16x16. However, the best results were still achieved using 32x32 images.</p>
+              <p>&#9642; The best results were obtained using all the passbands (JHK).</p>
+              <p>&#9642; Using only K images obtained the best results using an individual passband.</p>
+              <p>&#9642; Evolutionary convergence took roughly 15 generations using a population size of 100.</p>
+              <p>&#9642; The best CNN configuration could not be improved upon by a human configuration.  </p>
+              <p>&#9642; The approach was shown to be a possible tool for astronomers and could evolve a CNN that could identify potential galaxies in unseen data. </p>
+            </div>
+          </div>
+        </div>
+
+        <img src="./img/convergence.png" class = "rounded mx-auto d-block" alt="404: pic not found" style="width:50vh;padding-bottom:20px;"/>
+
+       
+          
+
+    </div>
+
+
+
+
+
     <footer class="section footer-classic context-dark bg-image" style="background: #f2f2f2;color:black;padding-top:20px;">
       <div class="container">
         <div class="row row-30">
           <div class="col-md-4 col-xl-5">
             <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
               <h5>Acknowledgements</h5>
-              <p>The authors would like to thank Dr Anja Schroeder from SAAO for her help with the labeled galaxy dataset; Nicholas Cross from VSA for supplying the unlabeled dataset; Gerard van Wyk for his advice on machine learning architecture. </p>
+              <p>The authors would like to thank Dr Anja Schroeder from SAAO for her expertise in astronomy and help in gathering the labeled dataset, Nicholas Cross from VSA for supplying the unlabeled dataset, Gerard van Wyk for his advice on machine learning architecture, and Dr Geoff Nitschke as the project supervisor. </p>
               <!-- Rights-->
               <!--<p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>All Rights Reserved.</span></p>-->
             </div>
@@ -53,12 +129,12 @@
             </dl>
             <dl class="contact-list">
               <dt>email:</dt>
-              <dd>Greg <a href="mailto:#">astgre002@myuct.ac.za</a></dd>
-              <dd>David <a href="mailto:#">XXXXXX@myuct.ac.za</a></dd>
+              <dd>Greg: <a href="mailto:#">astgre002@myuct.ac.za</a></dd>
+              <dd>David: <a href="mailto:#">davegj101@gmail.com</a></dd></dd>
             </dl>
             <dl class="contact-list">
               <dt>phones:</dt>
-              <dd>Greg <a href="tel:#">+27 72 594 4451</a> <br>David <a href="tel:#">+27 XX XXX XXXX</a>
+              <dd>Greg: <a href="tel:#">+27 72 594 4451</a> <br>David: <a href="tel:#">+27 83 502 2959</a>
               </dd>
             </dl>
           </div>
@@ -66,11 +142,10 @@
             <h5>Links</h5>
             <ul class="nav-list">
               <li><a href="./home.html">About</a></li>
-              <li><a target="_blank" href="#">Supervised approach thesis</a></li>
-              <li><a target="_blank" href="#">Supervised approach code</a></li>
-              <li><a target="_blank"  href="./pdfs/semi-super.pdf">Semi-supervised approach thesis</a></li>
-              
-              <li><a target="_blank" href="https://github.com/GregoryAustin/mlgal-unsupervised">Semi-supervised approach code</a></li>
+              <li><a target="_blank" href="./code/Galyxi Vysion.rar">Download Galyxi Vysion</a></li>
+              <li><a target="_blank"  href="./pdfs/JNSDAV026.pdf">Supervised approach paper</a></li>
+              <li><a target="_blank"  href="./pdfs/semi-super.pdf">Semi-supervised approach paper</a></li>
+              <li><a target="_blank"  href="https://github.com/GregoryAustin/mlgal-unsupervised">Semi-supervised approach code</a></li>
             </ul>
           </div>
         </div>
