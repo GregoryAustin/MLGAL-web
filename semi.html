@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css" >
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/mycss.css" crossorigin="anonymous">
     <title>MLGAL</title>
   </head>
@@ -19,14 +19,14 @@
 
       <div class="collapse navbar-collapse container" id="navbarNavAltMarkup">
         <div class="navbar-nav row">
-          <div class="col"><a class="nav-item nav-link active" href="./home.html">About <span class="sr-only">(current)</span></a></div>
-          <div class="nav-item dropdown ">
+          <div class="col"><a class="nav-item nav-link " href="./home.html">About </a></div>
+          <div class="nav-item dropdown active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Research 
+              Research <span class="sr-only">(current)</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="./super.html">Supervised Approach</a>
-              <a class="dropdown-item" href="./semi.html">Semi-supervised Approach</a>
+              <a class="dropdown-item active" href="./semi.html">Semi-supervised Approach</a>
             </div>
           </div>
           
@@ -34,24 +34,40 @@
       </div>
     </nav>
 
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4" style="text-align:center;">Deep Learning Methods for Galaxy Detection in the Zone of Avoidance</h1>
-        <p style="text-align:center;font-size:1.2em;font-weight:bold;">Research into identification of galaxies in the Zone of Avoidance. <br>Authored by David Jones and Gregory Austin. <br>Supervised by Geoff Nitschke.</p>
-      </div>
-    </div>
+    <div class="container" style="padding-top:60px">
+      <div class="row">
+        <div class="col"><b>Semi-supervised approach </b></div>
 
-    <div class="container">
-      <h1>Background</h1>
-        <p>Not many galaxies can be found in the Galactic Plane (also called Zone of Avoidance) due to high obscuration and high star density. There has been successes in detecting galaxies in the Galactic Plane, however, the key problem remains that high resolution data is difficult to search by eye given that it is overly time consuming and laborious. Thus an automated search and classification process is necessary. Two approaches were developed, a <a href="./semi.html">Semi-supervised deep learning approach</a> (Gregory Austin) and a <a href="./super.html">Supervised deep learning approach</a> (David Jones). Both approaches were used to classify galaxies. These galaxies are already classified galaxies to test the effectiveness of the methods. The results indicated that both learning methods had a high classification efficacy on their respective test sets (>90%). For more details check the research web pages. </p>
-      <h1>Project Objectives</h1>
+        <div class="col" style="text-align:right;"><a href="./pdfs/semi-super.pdf">Download academic paper</a></div>
+
+      </div>
+      <hr/>
+      
+      <h1>Effectiveness of Semi-supervised Deep-learning methods for Classification of Galaxies in the Galactic Plane</h1>
+      
+      <h2>Abstract</h2>
+        <p>This is a study on the effectiveness of using semi-supervised machine learning for classification of galaxies in near infrared (NIR)
+          surveys in the area of the Galactic Plane. Not many galaxies can be
+          found in the Galactic Plane (also called Zone of Avoidance) due to
+          high obscuration and high star density. There has been successes in
+          detecting galaxies in the Galactic Plane, however, the key problem
+          remains that high resolution data is difficult to search by eye given
+          that it is overly time consuming and laborious. Thus an automated
+          search and classification process is necessary. Semi-supervised deep
+          learning methods were developed for this study and used to classify galaxies. These galaxies are already classified galaxies to test
+          the effectiveness of the semi-supervised methods. The results indicated that the best semi-supervised learning method had a high
+          classification efficacy on the test set (>90%). As an explanation for
+          the high efficacy classification we hypothesize that the Encoder
+          from the autoencoder learnt some useful representations from the
+          comparatively large unlabeled dataset.</p>
+      <h2>Project Objectives</h2>
         <div class="entry-content">
           <p>&#9642; Objectives for both approaches included; accurately identify galaxies in the ZoA (Zone of Avoidance), dealing with "noise" from other light sources in the ZoA and potentially offering an improved work flow to astronomers in helping identifying galaxies in the ZoA.</p>
           <p>&#9642; The objectives for the <a href="./super.html"> supervised approach </a> (David Jones) included; evaluating if a topologically evolved CNN can identify galaxies in the ZoA, and evolving a CNN configuration that is specific to the required task, making it worth the EA processing time over a human adjusted configuration. </p>
           <p>&#9642; The objective of the <a href="./semi.html"> semi-supervised approach <a> was to evaluate the effectiveness of using an autoencoder with ANNs (semi-supervised) compared to only using ANNs (supervised). </p>
         </div>
       
-      <h1>Results</h1>
+      <h2>Results</h2>
         <div class="row" style="padding-bottom:20px;">
           <div class="col">
             <div class="entry-content">
@@ -63,15 +79,6 @@
               For more details on the supervised approach click <a href="./super.html">here</a>.
             </div>
           </div>
-          <div class="col">
-            <div class="entry-content">
-              <h3> Semi-supervised approach </h3>
-              <p>&#9642; The best results achieved 96% accuracy.</p>
-              <p>&#9642; It is theorised that the Encoder from the autoencoder learnt some useful representations because it was trained on an unlabeled dataset. </p>
-              <p>&#9642; Using these representations the semi-supervised learning method could utilize the data better than the supervised methods without the Encoder. </p>
-              For more details on the semi-supervised approach click <a href="./semi.html">here</a>.
-            </div>
-          </div>
         </div>
 
 
@@ -79,6 +86,11 @@
           
 
     </div>
+
+
+
+
+
     <footer class="section footer-classic context-dark bg-image" style="background: #f2f2f2;color:black;padding-top:20px;">
       <div class="container">
         <div class="row row-30">
