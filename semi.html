@@ -97,20 +97,21 @@ the dataset images range form 200x200 to 3500x3500 pixels and in
 each image the point source is centered. The dataset is in the Ks
 filter, this is used because the autoencoder is trained on data in the
 Ks filter. <a href="mailto:astgre002@myuct.ac.za">Contact</a> the author to acquire the labeled dataset. </p>
-<p>&#9642; CIFAR 10. This is a widely used dataset and is used in this
-study for benchmark task performance comparisons. The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes,
-with 6000 images per class. There are 50000 training images and
-10000 test images. The 10 classes are: airplanes, automobiles, birds,
-cats, deer, dogs, frogs, horses, ships and trucks. The classes are
-completely mutually exclusive. </p>
             
           </div>
           <br/>
 
         <h2>Methods</h2>
         <h5>Background</h5>
-
-        <p>The autoencoder was trained on the near infrared astronomical survey: VVV (VISTA Variables in the Via Lactea) in the Ks filter.
+<p>The core components of the semi-supervised learning architecture are an unsupervised and supervised method. Autoencoders are an existing unsupervised method and have had successes in representation learning. Representation learning is
+when features of a dataset are learned, for example, in an astronomical dataset stars and galaxies are features that would be learned. An
+autoencoder transforms inputs into outputs with the least possible
+amount of distortion. Given a simple autoencoder, there are three
+layers: an input layer, a hidden (encoding) layer, and a decoding
+layer. The network is trained to reconstruct its inputs, this forces
+the hidden layer to learn good representations of the inputs.</p>
+        <p>
+          The autoencoder was trained on the near infrared astronomical survey: VVV (VISTA Variables in the Via Lactea) in the Ks filter.
         The Ks filter captures light with a specific wave length, specifically
         from 1.990 μm to 2.310 μm. The Ks filter was chosen because the
         abundance of observations in this filter and extinction is lowest in
@@ -123,9 +124,8 @@ completely mutually exclusive. </p>
         learning methods.</p>
         <h5>Autoencoder</h5>
         <p>A visual representation of the encoding and decoding layers is given by
-the figures below. The input to the network can be 1 channel 96x96
-pixel images (galaxy data) or 3 channel (RGB) 32x32 pixel images
-(CIFAR-10). Pooling is used because it helps the autoencoder learn
+the figures below. The input to the network is 1 channel 96x96
+pixel images (galaxy data). Pooling is used because it helps the autoencoder learn
 more robust features, pooling is invariant to local deformations. The convolutional layers are inspired by LeCun et al.’s LeNet which used convolutional layers.</p>
       <div class="row">
           <div class="col"> 
@@ -178,16 +178,61 @@ function which is used for multiclass classification.
 
 <p style="padding-right:60px;padding-left:60px;text-align:center"><em>The structure of the CNN. This configuration is for galaxy images. </em> </p>
       <h2>Results and conclusions </h2>
-        <div class="row" style="padding-bottom:20px;">
-          <div class="col">
-            <div class="entry-content">
-              <p>&#9642; The best results achieved 91.75% accuracy.</p>
-              <p>&#9642; The best CNN configuration could not be improved upon by a human configuration.  </p>
-              <p>&#9642; The approach was shown to be a possible tool for astronomers and could evolve a CNN that could identify potential galaxies in unseen data. </p>
-              For more details on the supervised approach click <a href="./super.html">here</a>.
-            </div>
-          </div>
-        </div>
+        <p>
+          The results of the study indicated that a semi-supervised deep-
+learning method for classification of galaxies in the Galactic Plane
+yields high classification efficacy with respect to a range of test
+data from the Galactic Plane. Where high classification efficacy
+is classification accuracy >90%. The best semi-supervised method
+achieved a mean best of 96% on the test data set. This result supports hypothesis 1. The results also show that the
+Encoder + Simple ANN (semi-supervised) is more effective than
+the Simple ANN (supervised) on the galaxy test set. The results show that the Encoder + CNN (semi-supervised) is more effective than the CNN (supervised). Refer to the table below for results. 
+
+        </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Method</th>
+      <th scope="col">Min</th>
+      <th scope="col">Mean</th>
+      <th scope="col">Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Simple ANN</th>
+      <td>77.25%</td>
+      <td>77.9%</td>
+      <td>78.25%</td>
+    </tr>
+    <tr>
+      <th scope="row">Simple ANN + Encoder</th>
+      <td>95.25%</td>
+      <td>96%</td>
+      <td>96.25%</td>
+    </tr>
+    <tr>
+      <th scope="row">CNN</th>
+      <td>64.5%</td>
+      <td>82.5%</td>
+      <td>92%</td>
+    </tr>
+    <tr>
+      <th scope="row">CNN + Encoder</th>
+      <td>92.75%</td>
+      <td>95.03%</td>
+      <td>97%</td>
+    </tr>
+  </tbody>
+</table>
+        <p>
+The Simple ANN + Encoder performed better than the Simple ANN on the test set. Additionally the CNN + Encoder performed better than the CNN
+on the test set and therefore the Encoder learnt some useful representations
+of the dataset. Using these representations
+the semi-supervised learning method could utilize the data better
+than a supervised method. This result is supported by previous
+work having success with autoencoders and representation learning.
+        </p>
  <!--abstract, objectives, datasets,  --> 
 
     </div>
